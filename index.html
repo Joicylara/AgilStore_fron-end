@@ -65,12 +65,12 @@
 
         <label for="orderBy">Ordenar por:</label>
         <select id="orderBy">
-          <option value="nomeProduto">Nome</option>
-          <option value="quantidadeEstoque">Quantidade de Estoque</option>
+          <option value="nome">Nome</option>
+          <option value="quantidade">Quantidade de Estoque</option>
           <option value="preco">Preço</option>
         </select>
 
-        <button onclick="fetchProducts()">Aplicar Filtro</button>
+        <button class="button-filter" onclick="fetchProducts()">Aplicar Filtro</button>
       </div>
     </div>
 
@@ -95,6 +95,10 @@
   <div id="productModal" class="modal" style="display:none;">
     <div id="modalContent" class="modal-content"></div>
   </div>
+
+  <footer class="site-footer">
+    <p>© 2025 Gerenciamento de inventário de produtos. Todos os direitos reservados.</p>
+  </footer>
 
   <script src="script.js"></script>
 </body>

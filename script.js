@@ -2,37 +2,32 @@
 
 function toggleFilterDropdown(event) {
     const dropdown = document.getElementById('filterDropdown');
-    const filterIcon = document.getElementById('filterIcon'); // Botão do filtro
+    const filterIcon = document.getElementById('filterIcon'); 
 
     event.stopPropagation();
     
-    // Calcular a posição do filtro e ajustar a posição do dropdown
-    const rect = filterIcon.getBoundingClientRect();
-    dropdown.style.left = `${rect.left}px`; // Alinha o dropdown à esquerda do botão
-    dropdown.style.top = `${rect.bottom + window.scrollY}px`; // Coloca o dropdown abaixo do botão
     
-    // Alternar a visibilidade
+    const rect = filterIcon.getBoundingClientRect();
+    dropdown.style.left = `${rect.left}px`; 
+    dropdown.style.top = `${rect.bottom + window.scrollY}px`; 
+    
     dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
 }
 
-// Função para abrir o modal de adicionar produto
 function openAddProductModal() {
     document.getElementById('addProductModal').style.display = 'flex';
 }
 
-// Função para fechar o modal
 function closeModal() {
     document.getElementById('addProductModal').style.display = 'none';
 }
 
-// Função para adicionar um novo produto
 function addProduct() {
     const nomeProduto = document.getElementById('productName').value;
     const categoria = document.getElementById('productCategory').value;
     const quantidadeEstoque = document.getElementById('productStock').value;
     const preco = document.getElementById('productPrice').value;
 
-    // Verificar se todos os campos foram preenchidos
     if (!nomeProduto || !categoria || !quantidadeEstoque || !preco) {
         alert("Todos os campos devem ser preenchidos!");
         return;
@@ -45,7 +40,6 @@ function addProduct() {
         preco: parseFloat(preco)
     };
 
-    // Enviar a requisição para adicionar o produto
     fetch('http://localhost:3000/novoProduto', {
         method: 'POST',
         headers: {
@@ -55,11 +49,10 @@ function addProduct() {
     })
     .then(response => response.json())
     .then(data => {
-        console.log('Novo produto adicionado:', data);
         alert('Produto adicionado com sucesso!');
         fetchCategories();
         fetchProducts();
-        closeModal(); // Fecha o modal após adicionar
+        closeModal();
     })
     .catch(error => {
         console.error('Erro ao adicionar o produto:', error);
@@ -71,23 +64,14 @@ function openProductModal(productId) {
     const modal = document.getElementById('productModal');
     const modalContent = document.getElementById('modalContent');
 
-    // Encontre o produto correspondente
     fetch(`http://localhost:3000/buscaProduto/${productId}`)
         .then(response => response.json())
         .then(product => {
-            console.log('Produto recebido da API:', product);
-
-            // Acessar as propriedades dentro de produtoId
             const produto = product.produtoId || product;
-
-            // Formatar o preço
             const precoFormatado = typeof produto.preco === 'number' 
                 ? produto.preco.toFixed(2) 
                 : (produto.preco || '');
 
-            console.log('Preço formatado:', precoFormatado);
-
-            // Atualize o conteúdo do modal com os dados do produto
             modalContent.innerHTML = `
                 <h3>Editar Produto</h3>
                 <label for="editName">Nome:</label>
@@ -104,7 +88,6 @@ function openProductModal(productId) {
                 </div>
             `;
 
-            // Exibir o modal
             modal.style.display = 'flex';
         })
         .catch(error => {
@@ -114,13 +97,11 @@ function openProductModal(productId) {
 }
 
 
-// Função para fechar o modal
 function closeProductModal() {
     const modal = document.getElementById('productModal');
     modal.style.display = 'none';
 }
 
-// Função para salvar as alterações feitas no produto
 function saveProductChanges(productId) {
     const name = document.getElementById('editName').value;
     const category = document.getElementById('editCategory').value;
@@ -140,17 +121,15 @@ function saveProductChanges(productId) {
         .then(response => response.json())
         .then(() => {
             alert('Produto editado com sucesso');
-            fetchProducts(); // Atualiza a lista de produtos
+            fetchProducts(); 
             closeProductModal();
         })
         .catch(error => {
             alert('Erro ao editar produto');
             console.error(error);
         });
-    console.log('Preço salvo:', price);
 }
 
-// Função para buscar produtos no backend com filtros aplicados
 async function fetchProducts() {
     const category = document.getElementById('category').value;
     const orderBy = document.getElementById('orderBy').value;
@@ -184,7 +163,6 @@ async function fetchProducts() {
     }
 }
 
-// Função para excluir um produto
 function deleteProduct(productId) {
     const confirmDelete = confirm("Tem certeza que deseja excluir este produto?");
     if (confirmDelete) {
@@ -201,14 +179,13 @@ function deleteProduct(productId) {
     }
 }
 
-// Função para exibir os produtos na tabela
 function displayProducts(products) {
     const productList = document.getElementById('productList');
     productList.innerHTML = '';
 
     if (Array.isArray(products) && products.length > 0) {
         products.forEach(product => {
-            const produto = product.produtoId || product; // Caso o produto venha aninhado
+            const produto = product.produtoId || product;
             const idProduto = produto.idProduto || 'ID não disponível';
             const nomeProduto = produto.nomeProduto || 'Nome não disponível';
             const categoria = produto.categoria || 'Categoria não disponível';
@@ -242,18 +219,16 @@ function displayProducts(products) {
 
 async function fetchCategories() {
     const categorySelect = document.getElementById('category');
+    categorySelect.innerHTML = categorySelect.querySelector('option').outerHTML;
     
     try {
-        // Faz a requisição para obter as categorias
         const response = await fetch('http://localhost:3000/buscaTodasCategorias');
-        const data = await response.json(); // O objeto retornado tem a propriedade 'categoria'
+        const data = await response.json(); 
         
         if (!data.categoria || !Array.isArray(data.categoria)) {
             throw new Error('Estrutura de dados inválida do endpoint.');
         }
         const categories = data.categoria;
-
-        // Adiciona as categorias ao select, evitando duplicatas
         const uniqueCategories = [...new Set(categories)];
         uniqueCategories.forEach(category => {
             const option = document.createElement('option');
@@ -267,9 +242,6 @@ async function fetchCategories() {
     }
 }
 
-
-
-// Função de busca por nome de produto
 async function searchProduct() {
     const searchTerm = document.getElementById('searchInput').value.trim();
     if (!searchTerm) return;
@@ -300,11 +272,9 @@ async function searchProduct() {
     }
 }
 
-// Inicializa os dados ao carregar a página
 window.onload = function () {
     fetchCategories();
     fetchProducts();
 };
 
-// Adiciona o evento de clique para o ícone de filtro
 document.getElementById('filterIcon').addEventListener('click', toggleFilterDropdown);
