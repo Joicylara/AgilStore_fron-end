@@ -118,6 +118,16 @@ table tr:hover {
     background-color: #2980b9;
 }
 
+.button-editar:hover{
+    background-color: #fdfca6;
+    cursor: pointer;
+}
+
+.button-excluir:hover{
+    background-color: #f5878e;
+    cursor: pointer;
+}
+
 /* Estilo do Modal */
 .modal {
     position: fixed;

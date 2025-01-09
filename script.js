@@ -225,10 +225,10 @@ function displayProducts(products) {
                 <td>${quantidadeEstoque}</td>
                 <td>${precoFormatado}</td>
                 <td>
-                    <button onclick="openProductModal('${idProduto}')">
+                    <button class = "button-editar" onclick="openProductModal('${idProduto}')">
                         <i class="fas fa-edit"></i> Editar
                     </button>
-                    <button onclick="deleteProduct('${idProduto}')">
+                    <button class = "button-excluir" onclick="deleteProduct('${idProduto}')">
                         <i class="fas fa-trash-alt"></i> Excluir
                     </button>
                 </td>
