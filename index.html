@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AgilStore</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Inventário de Produtos</h1>
+
+    <div class="search-container">
+      <input type="text" id="searchInput" placeholder="Buscar produto..." />
+      <button id="searchButton" onclick="searchProduct()">
+        <i class="fas fa-search"></i>
+      </button>
+    </div>
+
+    <div class="filter">
+      <button id="filterIcon">
+        <i class="fas fa-filter"></i> Filtros
+      </button>
+      <div id="filterDropdown" class="filter-dropdown">
+        <label for="category">Categoria:</label>
+        <select id="category">
+          <option value="">Todas</option>
+          <option value="Laptops">Laptops</option>
+          <option value="Acessórios">Acessórios</option>
+        </select>
+
+        <label for="orderBy">Ordenar por:</label>
+        <select id="orderBy">
+          <option value="nomeProduto">Nome</option>
+          <option value="quantidadeEstoque">Quantidade de Estoque</option>
+          <option value="preco">Preço</option>
+        </select>
+
+        <button onclick="fetchProducts()">Aplicar Filtro</button>
+      </div>
+    </div>
+
+    
+    <div id="loading" class="loading" style="display: none;">Carregando...</div>
+
+    <table id="productTable" style="display:none;">
+      <thead>
+        <tr>
+          <th>Produto</th>
+          <th>Categoria</th>
+          <th>Quantidade</th>
+          <th>Preço</th>
+        </tr>
+      </thead>
+      <tbody id="productList">
+       
+      </tbody>
+    </table>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
