@@ -228,3 +228,84 @@ table tr:hover {
     color: #555;
   }
   
+
+@media (max-width: 768px) {
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f4f4f4;
+        width: 500px;
+    }
+    header {
+        width: 110%;
+        height: 200px; 
+    }
+
+    .header-title {
+        font-size: 1.5em; 
+        padding: 0 10px;
+    }
+
+    .container {
+        padding: 10px;
+        margin-left: 10px; 
+        max-width: 100%; 
+    }
+
+    h1 {
+        font-size: 1.5em; 
+    }
+
+    #searchInput {
+        width: 80%; 
+    }
+
+    #searchButton, #addProductButton {
+        width: 100%; 
+        margin-top: 10px; 
+    }
+
+    table {
+        font-size: 12px; 
+    }
+
+    table th, table td {
+        padding: 8px; 
+    }
+
+    .modal-content {
+        width: 50%; 
+        padding: 20px; 
+    }
+
+    .modal-content button {
+        width: 100%; 
+        margin: 10px 0; 
+    }
+
+    .modal-content input {
+        width: 80%;
+        padding: 10px;
+        margin: 10px 0;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+    }
+
+    .modal-content button {
+        width: 28%;
+        margin: 5px;
+        background-color: #3498db;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    .modal-content .button-container {
+        display: flex;
+        justify-content: space-around; 
+        width: 100%;
+    }
+    
+}
