@@ -1,77 +1,180 @@
-
-#loading {
-    text-align: center;
-    font-size: 18px;
-    color: #3498db;
-    display: none;
+header {
+    position: relative;
+    width: 100%;
+    height: 300px; /* Definindo uma altura para a imagem */
+    background-image: url('img/fundo.jpg'); /* Adicione o caminho para sua imagem */
+    background-size: cover;
+    background-position: center;
+    margin-bottom: 20px;
 }
-  
+
+/* Estilo para o título sobre a imagem */
+.header-title {
+    position: absolute;
+    top: 50%; /* Posiciona o título no meio da imagem */
+    left: 50%; /* Centraliza horizontalmente */
+    transform: translate(-50%, -50%); /* Ajusta para centralizar exatamente */
+    color: white;
+    font-size: 2.5em;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Dá um efeito de sombra no texto */
+    text-align: center;
+}
+
+/* Estilo do título */
+.header-title .title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    color: #2c3e50;
+}
+
+.header-title p{
+    font-size: 14px;
+    font-style: italic;
+    color: #011325;
+}
+
+/* Estilo geral para a página */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    width: 100%;
+    max-width: 1200px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-left: 60px;
+}
+
+/* Título com um estilo mais atraente */
+h1 {
+    text-align: left;
+    color: #9fc6ee;
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+/* Tabela com tons de azul */
 table {
     width: 100%;
     border-collapse: collapse;
     margin-top: 20px;
 }
-  
-table, th, td {
-    border: 1px solid #ddd;
-}
-  
-th, td {
+
+table th, table td {
     padding: 12px;
-    text-align: left;
+    border: 1px solid #ddd;
+    text-align: center;
 }
-  
-th {
+
+/* Cabeçalho da tabela em azul claro */
+table th {
     background-color: #3498db;
     color: white;
+    font-weight: bold;
 }
-  
-tbody tr:nth-child(even) {
+
+table tr:nth-child(even) {
     background-color: #f2f2f2;
 }
-  
-tbody tr:hover {
-    background-color: #e9ecef;
-}
-  
-button {
-    padding: 8px 12px;
-    border: none;
-    background-color: #3498db;
-    color: white;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-top: 10px;
-}
-  
-button:hover {
-    background-color: #2980b9;
+
+table tr:hover {
+    background-color: #eaf2f8;
 }
 
-
-.search-container {
-    display: flex;
-    align-items: center;
+/* Estilo do filtro e da barra de busca */
+.search-container, .filter {
+    width: 100%;
     margin-bottom: 20px;
 }
 
 #searchInput {
-    padding: 8px;
-    width: 300px;
-    border-radius: 5px;
+    width: 80%;
+    padding: 10px;
     border: 1px solid #ddd;
-    margin-right: 10px;
+    border-radius: 5px;
 }
 
-#searchButton {
+#searchButton, #addProductButton {
+    padding: 10px;
     background-color: #3498db;
-    border: none;
     color: white;
-    padding: 8px;
+    border: none;
     border-radius: 5px;
     cursor: pointer;
 }
 
-#searchButton:hover {
+#searchButton:hover, #addProductButton:hover {
     background-color: #2980b9;
+}
+
+/* Estilo do Modal */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.5); /* Fundo semitransparente */
+    z-index: 1000; /* Garante que o modal fique sobre outros elementos */
+}
+
+.modal-content {
+    background-color: white;
+    padding: 40px;
+    border-radius: 10px;
+    width: 400px;
+}
+
+.modal-content h3 {
+    margin-bottom: 15px;
+}
+
+.modal-content input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.modal-content button {
+    width: 48%;
+    margin: 5px;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.modal-content button:hover {
+    background-color: #2980b9;
+}
+
+.modal-content button:last-child {
+    background-color: #f44336;
+}
+
+.modal-content button:last-child:hover {
+    background-color: #e41f2c;
+}
+
+.modal-content .button-container {
+    display: flex;
+    justify-content: space-between; 
+    width: 100%;
 }

@@ -8,6 +8,15 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
+  <!-- Imagem no topo -->
+  <header>
+    <div class="header-title">
+        <h1 class="title">ÁgilStore</h1>
+        <p>Tornando o seu gerenciamento mais ágil</p>
+    </div>
+  </header>
+
+
   <div class="container">
     <h1>Inventário de Produtos</h1>
 
@@ -16,7 +25,32 @@
       <button id="searchButton" onclick="searchProduct()">
         <i class="fas fa-search"></i>
       </button>
+      <button id="addProductButton" onclick="openAddProductModal()">
+        Novo Produto
+      </button>
     </div>
+
+    <!-- Modal para adicionar produto -->
+  <div id="addProductModal" class="modal" style="display:none;">
+    <div class="modal-content">
+        <h3>Adicionar Novo Produto</h3>
+        <label for="productName">Nome:</label>
+        <input type="text" id="productName" placeholder="Nome do Produto" required />
+        
+        <label for="productCategory">Categoria:</label>
+        <input type="text" id="productCategory" placeholder="Categoria" required />
+        
+        <label for="productStock">Quantidade em Estoque:</label>
+        <input type="number" id="productStock" placeholder="Quantidade" required />
+        
+        <label for="productPrice">Preço:</label>
+        <input type="number" id="productPrice" placeholder="Preço" required />
+        <div class="button-container">
+          <button onclick="addProduct()">Salvar Produto</button>
+          <button onclick="closeModal()">Cancelar</button>
+        </div>  
+    </div>
+  </div>
 
     <div class="filter">
       <button id="filterIcon">
@@ -26,8 +60,6 @@
         <label for="category">Categoria:</label>
         <select id="category">
           <option value="">Todas</option>
-          <option value="Laptops">Laptops</option>
-          <option value="Acessórios">Acessórios</option>
         </select>
 
         <label for="orderBy">Ordenar por:</label>
@@ -41,22 +73,26 @@
       </div>
     </div>
 
-    
     <div id="loading" class="loading" style="display: none;">Carregando...</div>
 
     <table id="productTable" style="display:none;">
       <thead>
         <tr>
+          <th>ID</th>
           <th>Produto</th>
           <th>Categoria</th>
           <th>Quantidade</th>
           <th>Preço</th>
+          <th>Ações</th>
         </tr>
       </thead>
-      <tbody id="productList">
-       
-      </tbody>
+      <tbody id="productList"></tbody>
     </table>
+  </div>
+
+  <!-- Modal -->
+  <div id="productModal" class="modal" style="display:none;">
+    <div id="modalContent" class="modal-content"></div>
   </div>
 
   <script src="script.js"></script>
