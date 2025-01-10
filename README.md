@@ -1,5 +1,5 @@
 <h1>AgilStore - Front-end</h1>
-Este é o Front-End do projeto AgilStore, que tem como objetivo gerenciar o inventário de produtos de uma loja de eletrônicos. O front-end foi desenvolvido para demonstrar e consumir as funcionalidades da [API AgilStore](https://github.com/Joicylara/AgilStore), permitindo que você interaja facilmente com o sistema de gerenciamento de produtos.
+Este é o Front-End do projeto AgilStore, que tem como objetivo gerenciar o inventário de produtos de uma loja de eletrônicos. O front-end foi desenvolvido para demonstrar e consumir as funcionalidades da API AgilStore,permitindo que você interaja facilmente com o sistema de gerenciamento de produtos.
 
 ## 💻 Tecnologias Utilizadas
 Este front-end foi desenvolvido com as seguintes tecnologias:
@@ -44,7 +44,17 @@ Para rodar o projeto localmente, siga os passos abaixo:
 
 ## 🎥 Demonstração do funcionamento 
 Um vídeo demonstrando o funcionamento do front-end e testando as funcionalidades da API foi gravado. Nele, você pode ver como o front-end interage com a API para realizar as operações de gerenciamento de produtos, como adicionar, buscar, listar e excluir itens no inventário. 
-Link do video
+
+<div align="center"> 
+  <h3>Vídeo do teste no front-end</h3>
+  <img src="assets/AgilStore-.gif" width="600px">
+  <p>Testando as funções da API de uma forma mais interativa utilizando o front-end.</p>
+</div>
+
+## Links importantes
+[API AgilStore](https://github.com/Joicylara/AgilStore)
+
+[Deploy](https://agil-store-fron-end.vercel.app/)
 
 ## Conclusão
 Este projeto foi desenvolvido como parte do desafio proposto pelo Processo Seletivo da Aceleradora Ágil, turma 27 (2025/1º Semestre). O objetivo principal do front-end é fornecer uma interface simples e eficiente para consumir as funcionalidades da API AgilStore e demonstrar o funcionamento do sistema de gerenciamento de produtos de forma intuitiva.
