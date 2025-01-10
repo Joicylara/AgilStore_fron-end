@@ -40,7 +40,7 @@ Para rodar o projeto localmente, siga os passos abaixo:
    
 4. Importante: Certifique-se de que a API do AgilStore está rodando localmente, para isso clone o projeto do repositorio `https://github.com/Joicylara/AgilStore.git`, no readme dele tem o passo a passo.
    
-5. Para testar o projeto em um servidor, o deploy também está disponível, mas a API deve estar em execução para garantir a funcionalidade.
+5. Para testar o projeto em um servidor, o deploy também está disponível e tem responsividade, porém como a API deve estar em execução local para garantir a funcionalidade não é possível obter os dados usando o deploy em outros aparelhos que não esteja executando a API.
 
 ## 🎥 Demonstração do funcionamento 
 Um vídeo demonstrando o funcionamento do front-end e testando as funcionalidades da API foi gravado. Nele, você pode ver como o front-end interage com a API para realizar as operações de gerenciamento de produtos, como adicionar, buscar, listar e excluir itens no inventário. 
